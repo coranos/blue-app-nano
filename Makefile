@@ -20,8 +20,8 @@ $(error Environment variable BOLOS_SDK is not set)
 endif
 include $(BOLOS_SDK)/Makefile.defines
 
-APPNAME ="Nano"
-APP_LOAD_PARAMS=--appFlags 0x50 --path "44'/165'" --curve ed25519 $(COMMON_LOAD_PARAMS)
+APPNAME ="Banano"
+APP_LOAD_PARAMS=--appFlags 0x50 --path "44'/165'" --path "44'/198'" --curve ed25519 $(COMMON_LOAD_PARAMS)
 
 APPVERSION_M=1
 APPVERSION_N=0
@@ -100,14 +100,13 @@ SDK_SOURCE_PATH  += lib_stusb_impl
 SDK_SOURCE_PATH  += lib_u2f
 
 load: all
-	python -m ledgerblue.loadApp $(CUSTOM_CA_PARAM) $(APP_LOAD_PARAMS)
+	python3 -m ledgerblue.loadApp $(CUSTOM_CA_PARAM) $(APP_LOAD_PARAMS)
 
 delete:
-	python -m ledgerblue.deleteApp $(CUSTOM_CA_PARAM) $(COMMON_DELETE_PARAMS)
+	python3 -m ledgerblue.deleteApp $(CUSTOM_CA_PARAM) $(COMMON_DELETE_PARAMS)
 
 # import generic rules from the sdk
 include $(BOLOS_SDK)/Makefile.rules
 
 #add dependency on custom makefile filename
 dep/%.d: %.c Makefile
-
