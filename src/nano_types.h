@@ -47,15 +47,15 @@ typedef uint8_t nano_nonce_t[16];
 
 #define NANO_PREFIX_MAX_LEN 5
 #define NANO_NANO_PREFIX_LEN 5 // len("nano_")
-#define NANO_XRB_PREFIX_LEN 4 // len("xrb_")
+#define NANO_BAN_PREFIX_LEN 4 // len("ban_")
 
 typedef enum {
     NANO_NANO_PREFIX, // nano_
-    NANO_XRB_PREFIX, // xrb_
+    NANO_BAN_PREFIX, // xrb_
 } nano_address_prefix_t;
 
-#define NANO_DEFAULT_PREFIX NANO_XRB_PREFIX
-#define NANO_DEFAULT_PREFIX_LEN NANO_XRB_PREFIX_LEN
+#define NANO_DEFAULT_PREFIX NANO_BAN_PREFIX
+#define NANO_DEFAULT_PREFIX_LEN NANO_BAN_PREFIX_LEN
 
 typedef struct {
     nano_hash_t parent;

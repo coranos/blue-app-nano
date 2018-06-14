@@ -101,16 +101,16 @@ bool nano_read_account_string(uint8_t *buffer, size_t size,
         size -= 5;
         buffer += 5;
         *outPrefix = NANO_NANO_PREFIX;
-    } else if ((buffer[0] == 'x' || buffer[0] == 'X') &&
-               (buffer[1] == 'r' || buffer[1] == 'R') &&
-               (buffer[2] == 'b' || buffer[2] == 'B') &&
+    } else if ((buffer[0] == 'b' || buffer[0] == 'B') &&
+               (buffer[1] == 'a' || buffer[1] == 'A') &&
+               (buffer[2] == 'n' || buffer[2] == 'N') &&
                (buffer[3] == '-' || buffer[3] == '_')) {
-        if (size != NANO_ACCOUNT_STRING_BASE_LEN + NANO_XRB_PREFIX_LEN) {
+        if (size != NANO_ACCOUNT_STRING_BASE_LEN + NANO_BAN_PREFIX_LEN) {
             return false;
         }
         size -= 4;
         buffer += 4;
-        *outPrefix = NANO_XRB_PREFIX;
+        *outPrefix = NANO_BAN_PREFIX;
     } else {
         return false;
     }
@@ -203,12 +203,12 @@ void nano_write_account_string(uint8_t *buffer, nano_address_prefix_t prefix,
         buffer[4] = '_';
         buffer += NANO_NANO_PREFIX_LEN;
         break;
-    case NANO_XRB_PREFIX:
-        buffer[0] = 'x';
-        buffer[1] = 'r';
-        buffer[2] = 'b';
+    case NANO_BAN_PREFIX:
+        buffer[0] = 'b';
+        buffer[1] = 'a';
+        buffer[2] = 'n';
         buffer[3] = '_';
-        buffer += NANO_XRB_PREFIX_LEN;
+        buffer += NANO_BAN_PREFIX_LEN;
         break;
     }
 

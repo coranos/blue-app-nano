@@ -54,8 +54,8 @@ void ui_write_address_truncated(char *label, nano_address_prefix_t prefix, nano_
     case NANO_NANO_PREFIX:
         prefixSize = NANO_NANO_PREFIX_LEN;
         break;
-    case NANO_XRB_PREFIX:
-        prefixSize = NANO_XRB_PREFIX_LEN;
+    case NANO_BAN_PREFIX:
+        prefixSize = NANO_BAN_PREFIX_LEN;
         break;
     }
 
@@ -70,8 +70,8 @@ void ui_write_address_full(char *label, nano_address_prefix_t prefix, nano_publi
     case NANO_NANO_PREFIX:
         label[NANO_ACCOUNT_STRING_BASE_LEN+NANO_NANO_PREFIX_LEN] = '\0';
         break;
-    case NANO_XRB_PREFIX:
-        label[NANO_ACCOUNT_STRING_BASE_LEN+NANO_XRB_PREFIX_LEN] = '\0';
+    case NANO_BAN_PREFIX:
+        label[NANO_ACCOUNT_STRING_BASE_LEN+NANO_BAN_PREFIX_LEN] = '\0';
         break;
     }
 }
